@@ -22,6 +22,8 @@ Demo, C# ile yazılmış birkaç projeden oluşuyor.
 
 Grafana UI: kullanıcı adı `admin` şifre `grafana`
 
+Web API Prometheus metrik enpoint adresi: `http://localhost:8181/metrics`
+
 
 ### Demoyu Çalıştırmak 🚀
 
