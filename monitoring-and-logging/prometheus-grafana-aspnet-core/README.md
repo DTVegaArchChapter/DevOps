@@ -37,7 +37,7 @@ Aşağıdaki komutu çalıştırın ya da Visual Studio üzerinden `docker-compo
 
 `prometheus-net.AspNetCore` NuGet paketi ilgili projeye eklenir.
 
-`Program.cs` dosyasına `app.MapMetrics()` ve `app.UseHttpMetrics()` eklenir:
+[Program.cs](./src/Api/Program.cs) dosyasına `app.MapMetrics()` ve `app.UseHttpMetrics()` eklenir:
 
 ```csharp
 // ...
