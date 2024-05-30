@@ -32,3 +32,8 @@ Aşağıdaki komutu çalıştırın ya da Visual Studio üzerinden `docker-compo
 ```shell
 >  docker-compose up   
 ```
+
+## Kullanılan Grafana Dashboardlar
+
+### ASP.NET Core - controller summary (Prometheus)
+[![ASP.NET Core - controller summary (Prometheus)](./grafana-dashboard-10915.png)](https://grafana.com/grafana/dashboards/10915-asp-net-core-controller-summary-prometheus/)
