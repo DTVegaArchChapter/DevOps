@@ -32,3 +32,43 @@ Aşağıdaki komutu çalıştırın ya da Visual Studio üzerinden `docker-compo
 ```shell
 >  docker-compose up   
 ```
+
+## Asp.Net Core Web Api Konfigürayonu
+
+`prometheus-net.AspNetCore` NuGet paketi ilgili projeye eklenir.
+
+`Program.cs` dosyasına `app.MapMetrics()` ve `app.UseHttpMetrics()` eklenir:
+
+```csharp
+// ...
+
+app.MapMetrics();
+app.UseHttpMetrics();
+
+// ...
+```
+
+## Prometheus Konfigürasyonu
+
+Prometheus api uygulaması metriklerini docker içerisinden `http://api:8080/metrics` (container hostname ve port'u üzerinden) adresi üzerinden çekecek şekilde aşağıdaki gibi ayarlanmıştır.
+
+[prometheus.yml](./src/prometheus.yml)
+
+```yml
+global: 
+  scrape_interval: 10s
+  scrape_timeout: 5s
+  
+scrape_configs:
+  - job_name: "api"
+    static_configs: 
+      - targets: ["api:8080"]
+```
+
+## Kullanılan Grafana Dashboardlar
+
+### ASP.NET Core - controller summary (Prometheus)
+[![ASP.NET Core - controller summary (Prometheus)](./grafana-dashboard-10915.png)](https://grafana.com/grafana/dashboards/10915-asp-net-core-controller-summary-prometheus/)
+
+### prometheus-net
+[![prometheus-net](./grafana-dashboard-10427.png)](https://grafana.com/grafana/dashboards/10427-prometheus-net/)
