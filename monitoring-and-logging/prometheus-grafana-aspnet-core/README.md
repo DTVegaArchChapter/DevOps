@@ -20,12 +20,12 @@ Demo, C# ile yazılmış birkaç projeden oluşuyor.
 | Prometheus UI           | 9090       |
 | Grafana UI              | 3000       |
 
-Grafana UI kullanıcı adı `admin`, şifre `grafana`
+Grafana UI: kullanıcı adı `admin` şifre `grafana`
 
 
 ### Demoyu Çalıştırmak 🚀
 
-Altyapı bileşenlerini ve uygulamaları birlikte çalıştırmak için [docker-compose.yml](./docker-compose.yml) dosyasıyla çalıştırın.
+Altyapı bileşenlerini ve uygulamaları birlikte çalıştırmak için [docker-compose.yml](./src/docker-compose.yml) dosyasıyla çalıştırın.
 
 Aşağıdaki komutu çalıştırın ya da Visual Studio üzerinden `docker-compose` projesini çalıştırın.
 
