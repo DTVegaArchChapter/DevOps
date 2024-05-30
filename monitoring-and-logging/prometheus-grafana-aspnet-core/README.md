@@ -22,6 +22,8 @@ Demo, C# ile yazılmış birkaç projeden oluşuyor.
 
 Grafana UI: kullanıcı adı `admin` şifre `grafana`
 
+Web API Prometheus metrik enpoint adresi: `http://localhost:8181/metrics`
+
 
 ### Demoyu Çalıştırmak 🚀
 
@@ -37,7 +39,7 @@ Aşağıdaki komutu çalıştırın ya da Visual Studio üzerinden `docker-compo
 
 `prometheus-net.AspNetCore` NuGet paketi ilgili projeye eklenir.
 
-`Program.cs` dosyasına `app.MapMetrics()` ve `app.UseHttpMetrics()` eklenir:
+[Program.cs](./src/Api/Program.cs) dosyasına `app.MapMetrics()` ve `app.UseHttpMetrics()` eklenir:
 
 ```csharp
 // ...
