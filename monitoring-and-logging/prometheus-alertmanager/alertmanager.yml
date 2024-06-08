@@ -12,8 +12,8 @@ route:
   repeat_interval: 1h
   receiver: 'team-email'
 
-  receivers:
-    - name: 'team-email'
-      email_configs:
-        - to: 'team@test.com'
-          send_resolved: true
+receivers:
+  - name: 'team-email'
+    email_configs:
+      - to: 'team@test.com'
+        send_resolved: true

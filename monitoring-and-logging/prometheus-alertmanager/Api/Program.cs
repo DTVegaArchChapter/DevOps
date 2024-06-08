@@ -33,7 +33,7 @@ app.MapGet("/weatherforecast", () =>
                     summaries[Random.Shared.Next(summaries.Length)]
                 ))
             .ToArray();
-        Thread.Sleep(new Random().Next(1, 3) * 1000);
+        Thread.Sleep(Random.Shared.Next(1, 3) * 1000);
         return forecast;
     })
     .WithName("GetWeatherForecast")
