@@ -17,3 +17,4 @@ receivers:
     email_configs:
       - to: 'team@test.com'
         send_resolved: true
+        require_tls: false

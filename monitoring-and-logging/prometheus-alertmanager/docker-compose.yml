@@ -19,8 +19,10 @@
       - '9093:9093'
     volumes:
       - ./alertmanager.yml:/etc/alertmanager/alertmanager.yml
+      - alertmanager:/data
     command:
-      - '--config.file=/etc/alertmanager/alertmanager.yml' 
+      - '--config.file=/etc/alertmanager/alertmanager.yml'
+      - '--storage.path=/data'
         
   mailserver:
     image: jijiechen/papercut:latest
@@ -38,4 +40,6 @@
       
 volumes:
   prometheus:
+    driver: local
+  alertmanager:
     driver: local
