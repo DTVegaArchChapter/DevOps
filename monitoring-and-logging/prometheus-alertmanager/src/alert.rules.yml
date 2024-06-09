@@ -1,0 +1,15 @@
+groups:
+  - name: alert.rules
+    rules:
+      - alert: HighResponseTime
+        expr: histogram_quantile(0.9, sum by (le, endpoint) (rate(http_request_duration_seconds_bucket[1m]))) > 1.0
+        for: 1m
+        labels:
+          severity: "critical"
+        annotations:
+          summary: "Endpoint {{ $labels.endpoint }} High response time detected"
+          description: "{{ $labels.endpoint }} 90th percentile response time is above 1 second for the last 1 minute."
+          labels: |
+            {{ range $key, $value := .Labels }}
+              {{ $key }}: {{ $value }}
+            {{ end }}

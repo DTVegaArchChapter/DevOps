@@ -1,0 +1,35 @@
+# This is a generated file. Not intended for manual editing.
+services:
+  api:
+    build:
+      context: "/home/boraa/Documents/Projects/Github/DevOps/monitoring-and-logging/prometheus-alertmanager/src"
+      dockerfile: "Api/Dockerfile"
+      target: "base"
+      args:
+        BUILD_CONFIGURATION: "Debug"
+    command: []
+    entrypoint:
+    - "/opt/rider-debugger/linux-x64/JetBrains.Debugger.Worker"
+    - "--runtimeconfig"
+    - "/opt/rider-debugger/JetBrains.Debugger.Worker.runtimeconfig.json"
+    - "--mode=server"
+    - "--frontend-port=57100"
+    - "--backend-port=57300"
+    - "--timeout=60"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+      RIDER_DEBUGGER_LOG_DIR: "/var/opt/rider-debugger"
+      RESHARPER_LOG_CONF: "/etc/opt/rider-debugger/backend-log.xml"
+    image: "api:dev"
+    ports:
+    - "127.0.0.1:57001:57100"
+    - "127.0.0.1:57201:57300"
+    volumes:
+    - "/home/boraa/.nuget/packages:/home/app/.nuget/packages"
+    - "/home/boraa/Documents/Projects/Github/DevOps/monitoring-and-logging/prometheus-alertmanager/src/Api:/app:rw"
+    - "/home/boraa/Documents/Projects/Github/DevOps/monitoring-and-logging/prometheus-alertmanager/src:/src:rw"
+    - "/home/boraa/.local/share/JetBrains/RiderRemoteDebugger/2024.1.2/Linux64:/opt/rider-debugger"
+    - "/snap/rider/460/bin:/etc/opt/rider-debugger/backend-log.xml"
+    - "/home/boraa/.cache/JetBrains/Rider2024.1/log/DebuggerWorker/JetBrains.Debugger.Worker.2024_6_09_22_29_53:/var/opt/rider-debugger:rw"
+    working_dir: "/app"
