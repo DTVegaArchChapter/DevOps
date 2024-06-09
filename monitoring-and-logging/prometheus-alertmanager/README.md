@@ -80,7 +80,7 @@ groups:
   - name: alert.rules
     rules:
       - alert: HighResponseTime
-        expr: histogram_quantile(0.9, sum(rate(http_request_duration_seconds_bucket[1m])) by (le)) > 1.0
+        expr: histogram_quantile(0.9, sum by (le, endpoint) (rate(http_request_duration_seconds_bucket[1m]))) > 1.0
         for: 1m
         labels:
           severity: "critical"
@@ -118,6 +118,12 @@ receivers:
         require_tls: false
 ```
 
-## TODO
-- Screenshots
-- Test tool
+## Ekran Görüntüleri
+### Prometheus Alert Sayfası
+![Prometheus Alert](./prometheus-alert.png)
+
+### Alertmanager Alert Sayfası
+![Alertmanager Alert](./alertmanager-alert.png)
+
+### Alert E-Mail
+![E-Mail Alert](./mail-alert.png)
